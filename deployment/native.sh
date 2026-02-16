@@ -22,6 +22,9 @@ case "${1:-help}" in
         check_root "$1"
         echo "Установка зависимостей..."
         apt update
+        apt install -y software-properties-common
+        add-apt-repository -y ppa:ondrej/php
+        apt update
         apt install -y nginx php8.1-fpm php8.1-mysql mysql-server curl
         echo "✓ Зависимости установлены"
         ;;
