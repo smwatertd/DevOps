@@ -37,7 +37,7 @@ case "${1:-help}" in
         if [ "$PROJECT_DIR" != "$APP_DIR" ]; then
             echo "Копирование файлов в $APP_DIR..."
             mkdir -p "$APP_DIR"
-            cp -r "$PROJECT_DIR"/* "$APP_DIR/"
+            cp -r "$PROJECT_DIR"/* "$PROJECT_DIR"/.[!.]* "$APP_DIR/" 2>/dev/null || true
             cd "$APP_DIR"
         fi
 
